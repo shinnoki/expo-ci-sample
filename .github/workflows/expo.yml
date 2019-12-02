@@ -20,7 +20,7 @@ jobs:
             ${{ runner.os }}-yarn-
 
       - name: Add yarn global path
-        run: echo "::add-path::$(yarn global dir)"
+        run: echo "::add-path::$(yarn global bin)"
 
       - name: Install Expo CLI
         run: yarn global add expo-cli
