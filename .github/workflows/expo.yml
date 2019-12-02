@@ -41,5 +41,5 @@ jobs:
         run: |
           curl -X POST \
                -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-               -d "{\"body\": \"![](https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=$(sed -e 's/^https/exp/p;d' /tmp/expo_result | nkf -WwMQ | sed -e 's/=$//g' | tr '=' '%' | tr -d '\n')\"}" \
+               -d "{\"body\": \"![](https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=$(sed -e 's/^https/exp/p;d' /tmp/expo_result | xargs node -p 'encodeURIComponent(process.argv[1])')\"}" \
                ${{ github.event.pull_request.comments_url }}
