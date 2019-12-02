@@ -41,5 +41,5 @@ jobs:
         run: |
           curl -X POST \
                -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-               -d "{\"body\": \"Comment test\"}" \
+               -d "{\"body\": \"![](https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=exp%3A%2F%2Fexp.host%2F%40${{ secrets.EXPO_USERNAME }}%2FexpoCI%3Frelease-channel%3D${{ github.sha }}\"}" \
                ${{ github.event.pull_request.comments_url }}
