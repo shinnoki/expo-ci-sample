@@ -19,6 +19,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
 
+      - name: Add yarn global path
+        run: echo "::add-path::$(yarn global dir)"
+
       - name: Install Expo CLI
         run: yarn global add expo-cli
 
